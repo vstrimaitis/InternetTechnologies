@@ -1,0 +1,140 @@
+<!-- 
+https://images.mrprintables.com/activities/puzzle/printable-word-search-puzzle-fruits-pre.jpg
+-->
+
+<pzl:puzzle width="8" height="8"
+            xmlns="http://vstrimaitis.github.io/puzzle"
+            xmlns:pzl="http://vstrimaitis.github.io/puzzle">
+    <pzl:creationDate>2017-09-09</pzl:creationDate>
+    <pzl:difficulty>2.5</pzl:difficulty>
+    <pzl:words>
+        <pzl:word id="0">FRUITS</pzl:word>
+        <pzl:word id="1">APPLE</pzl:word>
+        <pzl:word id="2">ORANGE</pzl:word>
+        <pzl:word id="3">MANGO</pzl:word>
+        <pzl:word id="4">APRICOT</pzl:word>
+        <pzl:word id="5">PEAR</pzl:word>
+        <pzl:word id="6">MELON</pzl:word>
+        <pzl:word id="7">CHERRY</pzl:word>
+        <pzl:word id="8">KIWI</pzl:word>
+        <pzl:word id="9">LIME</pzl:word>
+        <pzl:word id="10">PLUM</pzl:word>
+        <pzl:word id="11">LEMON</pzl:word>
+        <pzl:word id="12">FIG</pzl:word>
+    </pzl:words>
+    <pzl:grid>
+        <!--
+        <row index="0">
+            <column index="0">A</column>
+            <column index="1">K</column>
+            <column index="2">O</column>
+            <column index="3">L</column>
+            <column index="4">I</column>
+            <column index="5">M</column>
+            <column index="6">E</column>
+            <column index="7">C</column>
+        </row>
+        -->
+        <pzl:row index="0">AKOLIMEC</pzl:row>
+        <pzl:row index="1">BIREGEPA</pzl:row>
+        <pzl:row index="2">FWAMRLEP</pzl:row>
+        <pzl:row index="3">RINPAOAR</pzl:row>
+        <pzl:row index="4">UFGLPNRI</pzl:row>
+        <pzl:row index="5">INEUELGC</pzl:row>
+        <pzl:row index="6">TLEMONEO</pzl:row>
+        <pzl:row index="7">SCHERRYT</pzl:row>
+    </pzl:grid>
+    <solution>
+        <word id="0">
+            <direction>S</direction>
+            <start>
+                <row>2</row>
+                <column>0</column>
+            </start>
+        </word>
+        <word id="1">
+            <direction>SE</direction>
+            <start>
+                <row>2</row>
+                <column>2</column>
+            </start>
+        </word>
+        <word id="2">
+            <direction>S</direction>
+            <start>
+                <row>0</row>
+                <column>2</column>
+            </start>
+        </word>
+        <word id="3">
+            <direction>SE</direction>
+            <start>
+                <row>2</row>
+                <column>3</column>
+            </start>
+        </word>
+        <word id="4">
+            <direction>S</direction>
+            <start>
+                <row>1</row>
+                <column>7</column>
+            </start>
+        </word>
+        <word id="5">
+            <direction>S</direction>
+            <start>
+                <row>1</row>
+                <column>6</column>
+            </start>
+        </word>
+        <word id="6">
+            <direction>S</direction>
+            <start>
+                <row>0</row>
+                <column>5</column>
+            </start>
+        </word>
+        <word id="7">
+            <direction>E</direction>
+            <start>
+                <row>7</row>
+                <column>1</column>
+            </start>
+        </word>
+        <word id="8">
+            <direction>S</direction>
+            <start>
+                <row>0</row>
+                <column>1</column>
+            </start>
+        </word>
+        <word id="9">
+            <direction>E</direction>
+            <start>
+                <row>0</row>
+                <column>3</column>
+            </start>
+        </word>
+        <word id="10">
+            <direction>S</direction>
+            <start>
+                <row>3</row>
+                <column>3</column>
+            </start>
+        </word>
+        <word id="11">
+            <direction>E</direction>
+            <start>
+                <row>6</row>
+                <column>1</column>
+            </start>
+        </word>
+        <word id="12">
+            <direction>SE</direction>
+            <start>
+                <row>2</row>
+                <column>0</column>
+            </start>
+        </word>
+    </solution>
+</pzl:puzzle>
