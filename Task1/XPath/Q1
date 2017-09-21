@@ -1,0 +1,3 @@
+/pzl:puzzle/solution/word[@id=1]
+
+/pzl:puzzle/solution/word[@id=1]/ancestor::*[1]

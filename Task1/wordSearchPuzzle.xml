@@ -23,18 +23,6 @@ https://images.mrprintables.com/activities/puzzle/printable-word-search-puzzle-f
         <pzl:word id="12">FIG</pzl:word>
     </pzl:words>
     <pzl:grid>
-        <!--
-        <row index="0">
-            <column index="0">A</column>
-            <column index="1">K</column>
-            <column index="2">O</column>
-            <column index="3">L</column>
-            <column index="4">I</column>
-            <column index="5">M</column>
-            <column index="6">E</column>
-            <column index="7">C</column>
-        </row>
-        -->
         <pzl:row index="0">AKOLIMEC</pzl:row>
         <pzl:row index="1">BIREGEPA</pzl:row>
         <pzl:row index="2">FWAMRLEP</pzl:row>
