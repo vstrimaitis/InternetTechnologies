@@ -1,0 +1,21 @@
+1. Gaut visus tagus <autorius>:
+    /Knygynas/autoriai/autorius
+    //autoriai/autorius
+    /Knygynas/autoriai/*
+    //autoriai/*
+2. Surasti trecio autoriaus varda:
+    //autoriai/autorius[3]/vardas/text()
+    //autorius[3]/vardas/text()
+    /Knygynas/autoriai/autorius[3]/vardas/text()
+3. Isrinkti kas antro autoriaus varda:
+    //autorius[position() mod 2 = 0]/vardas/text()
+    //autoriai/autorius[position() mod 2 = 0]/vardas/text()
+4. Pavarde autoriaus, kuris parase raudonkepuraite
+    //autorius[@id = //knyga[pavadinimas="Raudonkepuraitė"]/autorius/@ref]/pavardė/text()
+    /descendant-or-self::node()/autorius[@id = //knyga[pavadinimas="Raudonkepuraitė"]/autorius/@ref]/pavardė/text()
+5. Antras autorius, nenaudojant tarpiniu tagu jokiu:
+    (//autorius)[2]
+6. Pavadinimai visu knygu, kurias parase Antanas Antanaitis
+    //knyga[autorius/@ref = //autorius[vardas = "Antanas" and pavardė="Antanaitis"]/@id]/pavadinimas/text()
+
+MINI. Kas antra (neitraukiant pirmos) dokumento zyme.
