@@ -38,6 +38,11 @@ https://images.mrprintables.com/activities/puzzle/printable-word-search-puzzle-f
             <start>
                 <row>2</row>
                 <column>0</column>
+                <!--
+                Maybe should be changed to attributes.
+                Tags should be used if you suspect there might be expansions of your datastructure in the future.
+                If you have plain values, attributes should be used (better practice).
+                -->
             </start>
         </word>
         <word id="1">
