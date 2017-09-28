@@ -1,12 +1,16 @@
-1. Kiek kainuoja visos M. Martinkeno knygos?
-	sum(//knyga[autorius/@ref = //autorius[vardas="Martynas" and pavardė="Martinkėnas"]/@id]/kaina)
-2. Parasyti israiska gauti sakniniam mazgui (node)
-	/
+1. Kiek kainuoja visos M. Martinkeno knygos?	
+2. Parasyti israiska gauti sakniniam mazgui (node)	
 3. Parasyti israiska gauti sakninei zymei (tag)
-	/*
-4. Rasti maziausia knygos kaina
-	(//knyga[not(kaina > //knyga/kaina)])[1]/kaina/text()
+4. Rasti maziausia knygos kaina	
 5. Rasti visas tuscias dokumento zymes
-	(//*)[not(boolean(node()))]
 6. Ar Jonaitis parase "Algebra"?
-	//autorius[pavardė="Jonaitis"]/@id = //knyga[pavadinimas="Algebra"]/autorius/@ref
+M. Suskaiciuoti, kiek yra zymiu, kuriu reiksme yra skaicius
+	
+Mano sprendimai:
+1. sum(//knyga[autorius/@ref = //autorius[vardas="Martynas" and pavardė="Martinkėnas"]/@id]/kaina)
+2. /
+3. /*
+4. (//knyga[not(kaina > //knyga/kaina)])[1]/kaina/text()
+5. (//*)[not(boolean(node()))]
+6. //autorius[pavardė="Jonaitis"]/@id = //knyga[pavadinimas="Algebra"]/autorius/@ref
+M. count((//*)[node() = number(node())])
