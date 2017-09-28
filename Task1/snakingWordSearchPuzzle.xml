@@ -1,0 +1,93 @@
+<pzl:puzzle width="6" height="6"
+            xmlns="http://vstrimaitis.github.io/puzzle"
+            xmlns:pzl="http://vstrimaitis.github.io/puzzle">
+	<pzl:metadata>
+		<pzl:creationDate>2017-09-28</pzl:creationDate>
+		<pzl:difficulty>3.5</pzl:difficulty>
+	</pzl:metadata>
+    <pzl:words>
+        <pzl:word id="0">JAVASCRIPT</pzl:word>
+        <pzl:word id="1">XPATH</pzl:word>
+        <pzl:word id="2">JSON</pzl:word>
+        <pzl:word id="3">SCHEMA</pzl:word>
+        <pzl:word id="4">HTML</pzl:word>
+        <pzl:word id="5">CSS</pzl:word>
+        <pzl:word id="6">INTERNETAS</pzl:word>
+        <pzl:word id="7">WIFI</pzl:word>
+    </pzl:words>
+    <pzl:grid>
+        <pzl:row index="0">JRITNTA</pzl:row>
+        <pzl:row index="1">ACPCIME</pzl:row>
+        <pzl:row index="2">VSLSERN</pzl:row>
+        <pzl:row index="3">AYLHSET</pzl:row>
+        <pzl:row index="4">XHCMWIA</pzl:row>
+        <pzl:row index="5">PSTXIFS</pzl:row>
+        <pzl:row index="6">ATHJSON</pzl:row>
+    </pzl:grid>
+    <solution>
+        <word id="0">
+			<start row="0" col="0"/>
+			<end row="0" col="3"/>
+			<turns>
+				<turn row="3" col="0"/>
+				<turn row="2" col="1"/>
+				<turn row="0" col="1"/>
+				<turn row="0" col="2"/>
+				<turn row="1" col="2"/>
+			</turns>
+        </word>
+        <word id="1">
+			<start row="4" col="0"/>
+			<end row="6" col="2"/>
+			<turns>
+				<turn row="6" col="0"/>
+			</turns>
+        </word>
+        <word id="2">
+			<start row="6" col="3"/>
+			<end row="6" col="6"/>
+			<turns/>
+        </word>
+        <word id="3">
+			<start row="5" col="1"/>
+			<end row="0" col="6"/>
+			<turns/>
+        </word>
+        <word id="4">
+			<start row="4" col="1"/>
+			<end row="3" col="2"/>
+			<turns>
+				<turn row="5" col="2"/>
+				<turn row="4" col="3"/>
+			</turns>
+        </word>
+        <word id="5">
+			<start row="1" col="3"/>
+			<end row="3" col="4"/>
+			<turns>
+				<turn row="2" col="3"/>
+			</turns>
+        </word>
+        <word id="6">
+			<start row="1" col="4"/>
+			<end row="5" col="6"/>
+			<turns>
+				<turn row="0" col="4"/>
+				<turn row="0" col="5"/>
+				<turn row="1" col="6"/>
+				<turn row="2" col="5"/>
+				<turn row="2" col="6"/>
+				<turn row="3" col="5"/>
+				<turn row="3" col="6"/>
+			</turns>
+        </word>
+        <word id="7">
+			<start row="4" col="4"/>
+			<end row="5" col="4"/>
+			<turns>
+				<turn row="4" col="5"/>
+				<turn row="5" col="5"/>
+			</turns>
+        </word>
+    </solution>
+</pzl:puzzle>

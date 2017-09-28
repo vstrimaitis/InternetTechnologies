@@ -5,8 +5,10 @@ https://images.mrprintables.com/activities/puzzle/printable-word-search-puzzle-f
 <pzl:puzzle width="8" height="8"
             xmlns="http://vstrimaitis.github.io/puzzle"
             xmlns:pzl="http://vstrimaitis.github.io/puzzle">
-    <pzl:creationDate>2017-09-09</pzl:creationDate>
-    <pzl:difficulty>2.5</pzl:difficulty>
+	<pzl:metadata>
+		<pzl:creationDate>2017-09-09</pzl:creationDate>
+		<pzl:difficulty>2.5</pzl:difficulty>
+	</pzl:metadata>
     <pzl:words>
         <pzl:word id="0">FRUITS</pzl:word>
         <pzl:word id="1">APPLE</pzl:word>
