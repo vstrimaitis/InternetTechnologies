@@ -1,7 +1,7 @@
 <pzl:puzzle width="6"
             height="6"
             difficulty="3.5"
-            creationData="2017-09-28"
+            creationDate="2017-09-28"
             xmlns="http://vstrimaitis.github.io/puzzle"
             xmlns:pzl="http://vstrimaitis.github.io/puzzle">
     <pzl:words>
