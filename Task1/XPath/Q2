@@ -1,2 +1,2 @@
 2. Rasti sprendima zodziui "JSON":
-    //solution/word[@id = //pzl:words/pzl:word[text()="JSON"]/@id]
+    //solution/word[@id = //pzl:words/pzl:word[@value="JSON"]/@id]

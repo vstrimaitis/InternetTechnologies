@@ -1,5 +1,5 @@
 7a. Lygina visu zodziu id aibe su paciu zodziu aibe (skaiciai vs NaN):
-    //pzl:word/@id > //pzl:word/text()
+    //pzl:word/@id > //pzl:word/@value
 
 7b. Lygina visu zodziu id aibe su visu grido eiluciu indeksu aibe:
     //pzl:word/@id < //pzl:row/@index
