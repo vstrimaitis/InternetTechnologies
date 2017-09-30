@@ -1,28 +1,83 @@
-<pzl:puzzle width="6" height="6"
+<pzl:puzzle width="6"
+            height="6"
+            difficulty="3.5"
+            creationData="2017-09-28"
             xmlns="http://vstrimaitis.github.io/puzzle"
             xmlns:pzl="http://vstrimaitis.github.io/puzzle">
-	<pzl:metadata>
-		<pzl:creationDate>2017-09-28</pzl:creationDate>
-		<pzl:difficulty>3.5</pzl:difficulty>
-	</pzl:metadata>
     <pzl:words>
-        <pzl:word id="0">JAVASCRIPT</pzl:word>
-        <pzl:word id="1">XPATH</pzl:word>
-        <pzl:word id="2">JSON</pzl:word>
-        <pzl:word id="3">SCHEMA</pzl:word>
-        <pzl:word id="4">HTML</pzl:word>
-        <pzl:word id="5">CSS</pzl:word>
-        <pzl:word id="6">INTERNETAS</pzl:word>
-        <pzl:word id="7">WIFI</pzl:word>
+        <pzl:word id="0" value="JAVASCRIPT"/>
+        <pzl:word id="1" value="XPATH"/>
+        <pzl:word id="2" value="JSON"/>
+        <pzl:word id="3" value="SCHEMA"/>
+        <pzl:word id="4" value="HTML"/>
+        <pzl:word id="5" value="CSS"/>
+        <pzl:word id="6" value="INTERNETAS"/>
+        <pzl:word id="7" value="WIFI"/>
     </pzl:words>
     <pzl:grid>
-        <pzl:row index="0">JRITNTA</pzl:row>
-        <pzl:row index="1">ACPCIME</pzl:row>
-        <pzl:row index="2">VSLSERN</pzl:row>
-        <pzl:row index="3">AYLHSET</pzl:row>
-        <pzl:row index="4">XHCMWIA</pzl:row>
-        <pzl:row index="5">PSTXIFS</pzl:row>
-        <pzl:row index="6">ATHJSON</pzl:row>
+        <pzl:row>
+            <pzl:col value="J"/>
+            <pzl:col value="R"/>
+            <pzl:col value="I"/>
+            <pzl:col value="T"/>
+            <pzl:col value="N"/>
+            <pzl:col value="T"/>
+            <pzl:col value="A"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="A"/>
+            <pzl:col value="C"/>
+            <pzl:col value="P"/>
+            <pzl:col value="C"/>
+            <pzl:col value="I"/>
+            <pzl:col value="M"/>
+            <pzl:col value="E"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="V"/>
+            <pzl:col value="S"/>
+            <pzl:col value="L"/>
+            <pzl:col value="S"/>
+            <pzl:col value="E"/>
+            <pzl:col value="R"/>
+            <pzl:col value="N"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="A"/>
+            <pzl:col value="Y"/>
+            <pzl:col value="L"/>
+            <pzl:col value="H"/>
+            <pzl:col value="S"/>
+            <pzl:col value="E"/>
+            <pzl:col value="T"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="X"/>
+            <pzl:col value="H"/>
+            <pzl:col value="C"/>
+            <pzl:col value="M"/>
+            <pzl:col value="W"/>
+            <pzl:col value="I"/>
+            <pzl:col value="A"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="P"/>
+            <pzl:col value="S"/>
+            <pzl:col value="T"/>
+            <pzl:col value="X"/>
+            <pzl:col value="I"/>
+            <pzl:col value="F"/>
+            <pzl:col value="S"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="A"/>
+            <pzl:col value="T"/>
+            <pzl:col value="H"/>
+            <pzl:col value="J"/>
+            <pzl:col value="S"/>
+            <pzl:col value="O"/>
+            <pzl:col value="N"/>
+        </pzl:row>
     </pzl:grid>
     <solution>
         <word id="0">
