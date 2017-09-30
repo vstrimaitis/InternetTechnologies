@@ -1,135 +1,148 @@
-<!-- 
-https://images.mrprintables.com/activities/puzzle/printable-word-search-puzzle-fruits-pre.jpg
--->
-
-<pzl:puzzle width="8" height="8"
+<pzl:puzzle width="6"
+            height="6"
+            difficulty="3.5"
+            creationData="2017-09-28"
             xmlns="http://vstrimaitis.github.io/puzzle"
             xmlns:pzl="http://vstrimaitis.github.io/puzzle">
-	<pzl:metadata>
-		<pzl:creationDate>2017-09-09</pzl:creationDate>
-		<pzl:difficulty>2.5</pzl:difficulty>
-	</pzl:metadata>
     <pzl:words>
-        <pzl:word id="0">FRUITS</pzl:word>
-        <pzl:word id="1">APPLE</pzl:word>
-        <pzl:word id="2">ORANGE</pzl:word>
-        <pzl:word id="3">MANGO</pzl:word>
-        <pzl:word id="4">APRICOT</pzl:word>
-        <pzl:word id="5">PEAR</pzl:word>
-        <pzl:word id="6">MELON</pzl:word>
-        <pzl:word id="7">CHERRY</pzl:word>
-        <pzl:word id="8">KIWI</pzl:word>
-        <pzl:word id="9">LIME</pzl:word>
-        <pzl:word id="10">PLUM</pzl:word>
-        <pzl:word id="11">LEMON</pzl:word>
-        <pzl:word id="12">FIG</pzl:word>
+        <pzl:word id="0" value="JAVASCRIPT"/>
+        <pzl:word id="1" value="XPATH"/>
+        <pzl:word id="2" value="JSON"/>
+        <pzl:word id="3" value="SCHEMA"/>
+        <pzl:word id="4" value="HTML"/>
+        <pzl:word id="5" value="CSS"/>
+        <pzl:word id="6" value="INTERNETAS"/>
+        <pzl:word id="7" value="WIFI"/>
     </pzl:words>
     <pzl:grid>
-        <pzl:row index="0">AKOLIMEC</pzl:row>
-        <pzl:row index="1">BIREGEPA</pzl:row>
-        <pzl:row index="2">FWAMRLEP</pzl:row>
-        <pzl:row index="3">RINPAOAR</pzl:row>
-        <pzl:row index="4">UFGLPNRI</pzl:row>
-        <pzl:row index="5">INEUELGC</pzl:row>
-        <pzl:row index="6">TLEMONEO</pzl:row>
-        <pzl:row index="7">SCHERRYT</pzl:row>
+        <pzl:row>
+            <pzl:col value="J"/>
+            <pzl:col value="R"/>
+            <pzl:col value="I"/>
+            <pzl:col value="T"/>
+            <pzl:col value="N"/>
+            <pzl:col value="T"/>
+            <pzl:col value="A"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="A"/>
+            <pzl:col value="C"/>
+            <pzl:col value="P"/>
+            <pzl:col value="C"/>
+            <pzl:col value="I"/>
+            <pzl:col value="M"/>
+            <pzl:col value="E"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="V"/>
+            <pzl:col value="S"/>
+            <pzl:col value="L"/>
+            <pzl:col value="S"/>
+            <pzl:col value="E"/>
+            <pzl:col value="R"/>
+            <pzl:col value="N"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="A"/>
+            <pzl:col value="Y"/>
+            <pzl:col value="L"/>
+            <pzl:col value="H"/>
+            <pzl:col value="S"/>
+            <pzl:col value="E"/>
+            <pzl:col value="T"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="X"/>
+            <pzl:col value="H"/>
+            <pzl:col value="C"/>
+            <pzl:col value="M"/>
+            <pzl:col value="W"/>
+            <pzl:col value="I"/>
+            <pzl:col value="A"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="P"/>
+            <pzl:col value="S"/>
+            <pzl:col value="T"/>
+            <pzl:col value="X"/>
+            <pzl:col value="I"/>
+            <pzl:col value="F"/>
+            <pzl:col value="S"/>
+        </pzl:row>
+        <pzl:row>
+            <pzl:col value="A"/>
+            <pzl:col value="T"/>
+            <pzl:col value="H"/>
+            <pzl:col value="J"/>
+            <pzl:col value="S"/>
+            <pzl:col value="O"/>
+            <pzl:col value="N"/>
+        </pzl:row>
     </pzl:grid>
     <solution>
         <word id="0">
-            <direction>S</direction>
-            <start>
-                <row>2</row>
-                <column>0</column>
-                <!--
-                Maybe should be changed to attributes.
-                Tags should be used if you suspect there might be expansions of your datastructure in the future.
-                If you have plain values, attributes should be used (better practice).
-                -->
-            </start>
+			<start row="0" col="0"/>
+			<end row="0" col="3"/>
+			<turns>
+				<turn row="3" col="0"/>
+				<turn row="2" col="1"/>
+				<turn row="0" col="1"/>
+				<turn row="0" col="2"/>
+				<turn row="1" col="2"/>
+			</turns>
         </word>
         <word id="1">
-            <direction>SE</direction>
-            <start>
-                <row>2</row>
-                <column>2</column>
-            </start>
+			<start row="4" col="0"/>
+			<end row="6" col="2"/>
+			<turns>
+				<turn row="6" col="0"/>
+			</turns>
         </word>
         <word id="2">
-            <direction>S</direction>
-            <start>
-                <row>0</row>
-                <column>2</column>
-            </start>
+			<start row="6" col="3"/>
+			<end row="6" col="6"/>
+			<turns/>
         </word>
         <word id="3">
-            <direction>SE</direction>
-            <start>
-                <row>2</row>
-                <column>3</column>
-            </start>
+			<start row="5" col="1"/>
+			<end row="0" col="6"/>
+			<turns/>
         </word>
         <word id="4">
-            <direction>S</direction>
-            <start>
-                <row>1</row>
-                <column>7</column>
-            </start>
+			<start row="4" col="1"/>
+			<end row="3" col="2"/>
+			<turns>
+				<turn row="5" col="2"/>
+				<turn row="4" col="3"/>
+			</turns>
         </word>
         <word id="5">
-            <direction>S</direction>
-            <start>
-                <row>1</row>
-                <column>6</column>
-            </start>
+			<start row="1" col="3"/>
+			<end row="3" col="4"/>
+			<turns>
+				<turn row="2" col="3"/>
+			</turns>
         </word>
         <word id="6">
-            <direction>S</direction>
-            <start>
-                <row>0</row>
-                <column>5</column>
-            </start>
+			<start row="1" col="4"/>
+			<end row="5" col="6"/>
+			<turns>
+				<turn row="0" col="4"/>
+				<turn row="0" col="5"/>
+				<turn row="1" col="6"/>
+				<turn row="2" col="5"/>
+				<turn row="2" col="6"/>
+				<turn row="3" col="5"/>
+				<turn row="3" col="6"/>
+			</turns>
         </word>
         <word id="7">
-            <direction>E</direction>
-            <start>
-                <row>7</row>
-                <column>1</column>
-            </start>
-        </word>
-        <word id="8">
-            <direction>S</direction>
-            <start>
-                <row>0</row>
-                <column>1</column>
-            </start>
-        </word>
-        <word id="9">
-            <direction>E</direction>
-            <start>
-                <row>0</row>
-                <column>3</column>
-            </start>
-        </word>
-        <word id="10">
-            <direction>S</direction>
-            <start>
-                <row>3</row>
-                <column>3</column>
-            </start>
-        </word>
-        <word id="11">
-            <direction>E</direction>
-            <start>
-                <row>6</row>
-                <column>1</column>
-            </start>
-        </word>
-        <word id="12">
-            <direction>SE</direction>
-            <start>
-                <row>2</row>
-                <column>0</column>
-            </start>
+			<start row="4" col="4"/>
+			<end row="5" col="4"/>
+			<turns>
+				<turn row="4" col="5"/>
+				<turn row="5" col="5"/>
+			</turns>
         </word>
     </solution>
 </pzl:puzzle>
