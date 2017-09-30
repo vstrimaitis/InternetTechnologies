@@ -1,0 +1,2 @@
+5. Isrenka visus zodzius, isskyrus pirma ir ta, kurios id = 4:
+    /pzl:puzzle/descendant::pzl:word/following-sibling::*[@id!=4]

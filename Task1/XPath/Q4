@@ -1,0 +1,6 @@
+4a. Ar zodzio "JAVASCRIPT" id yra mazesnis uz visu jo sprendinyje esanciu posukio tasku eilutes numeri:
+    //pzl:words/pzl:word[text()="JAVASCRIPT"]/@id < //solution/word[@id = //pzl:words/pzl:word[text()="JAVASCRIPT"]/@id]/turns/turn/@row
+4b. Ar zodis "JSON" turi posukiu?
+    //solution/word[@id=//pzl:words/pzl:word[text()="JSON"]/@id]/turns/turn = true()
+4c. Prie visu zodziu id aibes pridet 1 (prideda prie paskutinio, o ne prie pirmo. galbut skirias xpath impl?):
+    1 + //pzl:words/pzl:word/@id

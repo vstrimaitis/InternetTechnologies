@@ -1,0 +1,4 @@
+3a. Suskaiciuoti, kiek posukiu turi zodis "INTERNETAS":
+    count(//solution/word[@id = //pzl:words/pzl:word[text()="INTERNETAS"]/@id]/turns/*)
+3b. Susumuot visu zodziu id (nes nera daugiau ka sumuot :D):
+    sum(//pzl:words/pzl:word/@id)

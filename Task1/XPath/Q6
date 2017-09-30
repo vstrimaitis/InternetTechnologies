@@ -1,0 +1,8 @@
+6a. Lyginam visu zodziu id aibe su skaiciumi 5.0:
+    5.0 = //pzl:words/pzl:word/@id
+6b. Lyginam visu zodziu id aibe su simboliu eilute "5.0":
+    "5.0" = //pzl:words/pzl:word/@id
+6c. Lyginam visu zodziu id aibe su logine reiksme true (paziuri ar yra elementu):
+    true() = //pzl:words/pzl:word/@id
+6d. Lyginam visu zodziu id aibe su visu lentos eiluciu id aibe:
+    //pzl:words/pzl:word/@id != //pzl:grid/pzl:row/@index

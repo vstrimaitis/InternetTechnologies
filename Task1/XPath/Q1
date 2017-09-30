@@ -1,3 +1,17 @@
-/pzl:puzzle/solution/word[@id=1]
+1. Paima sprendimo zodi, kurio id yra 1:
+    /pzl:puzzle/solution/word[@id=1]
 
-/pzl:puzzle/solution/word[@id=1]/ancestor::*[1]
+    1a. Paima visa solution:
+        /pzl:puzzle/solution/word[@id=1]/ancestor::*[1]
+    1b. Paima zodzio pirma posukio taska:
+        /pzl:puzzle/solution/word[@id=1]/descendant::turn[1]
+    1c. Paima antra zodi po sito:
+        /pzl:puzzle/solution/word[@id=1]/following-sibling::*[2]
+    1d. Paima ka tik pries tai ejusi zodi:
+        /pzl:puzzle/solution/word[@id=1]/preceding-sibling::*[1]
+    1e. Paima pirmas 4 zymes, einancias po sitos:
+        /pzl:puzzle/solution/word[@id=1]/following::*[position() <= 4]
+    1f. Paima antra pries tai einancia zyme:
+        /pzl:puzzle/solution/word[@id=1]/preceding::*[2]
+    1g. Paima pradzios tasko eilutes koordinate:
+        /pzl:puzzle/solution/word[@id=1]/start/attribute::row
