@@ -1,0 +1,61 @@
+Architektas Tadas ir mokytoja Regina paliko butą Kaune - pora švęs savo
+sutuoktuvių metines užmiestyje, kur jų pasveikinti atvyks sostinėje studijuojanti
+dukra Gintarė ir sūnus Remigijus, Panevėžio teatro aktorius.
+
+Užduotis: užrašyti šeimos modelį JSON formatu neprarandant informacijos.
+
+{
+    "šeimosNariai": [
+        {
+            "id": 0,
+            "vardas": "Tadas",
+            "profesija": "Architektas",
+            "miestas": "Kaunas"
+        },
+        {
+            "id": 1,
+            "vardas": "Regina",
+            "profesija": "Mokytoja",
+            "miestas": "Kaunas"
+        },
+        {
+            "id": 2,
+            "vardas": "Gintarė",
+            "profesija": "Studentė",
+            "miestas": "Vilnius"
+        },
+        {
+            "id": 3,
+            "vardas": "Remigijus",
+            "profesija": "Aktorius",
+            "miestas": "Panevėžys"
+        }
+    ],
+    "šeimosRyšiai": [
+        {
+            "pirmasŽmogus": 0,
+            "antrasŽmogus": 1,
+            "ryšys": "sutuoktinis"
+        },
+        {
+            "pirmasŽmogus": 0,
+            "antrasŽmogus": 2,
+            "ryšys": "tėvas"
+        },
+        {
+            "pirmasŽmogus": 1,
+            "antrasŽmogus": 2,
+            "ryšys": "mama"
+        },
+        {
+            "pirmasŽmogus": 0,
+            "antrasŽmogus": 3,
+            "ryšys": "tėvas"
+        },
+        {
+            "pirmasŽmogus": 1,
+            "antrasŽmogus": 3,
+            "ryšys": "mama"
+        }
+    ]
+}
