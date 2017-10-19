@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<graph xmlns="http://vstrimaitis.github.io/mini.xsd">
+  <nodes>
+    <node name="A" />
+    <node name="B" />
+    <node name="C" />
+  </nodes>
+  <vertices>
+    <vertex>
+      <from>A</from>
+      <to>B</to>
+      <weight>3</weight>
+    </vertex>
+  </vertices>
+</graph>

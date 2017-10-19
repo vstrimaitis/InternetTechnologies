@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://vstrimaitis.github.io/1_Family.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://vstrimaitis.github.io/1_Family.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:this="http://vstrimaitis.github.io/1_Family.xsd"
+>
+  <xs:element name="Family" type="this:FamilyType"/>
+  <xs:complexType name="FamilyType">
+    <xs:sequence>
+      <xs:element name="Member" type="this:MemberType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MemberType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="surname" type="xs:string" />
+      <xs:element name="age" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

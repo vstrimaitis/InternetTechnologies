@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://vstrimaitis.github.io/mini.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://vstrimaitis.github.io/mini.xsd"
+    xmlns:this="http://vstrimaitis.github.io/mini.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="graph" type="this:Graph">
+    <!-- ??? -->
+    <xs:key name="NodeKey">
+      <xs:selector xpath="nodes/node" />
+      <xs:field xpath="@name" />
+    </xs:key>
+    <xs:keyref name="FromRef" refer="NodeKey">
+      <xs:selector xpath="vertices/vertex/from" />
+      <xs:field xpath="." />   <!-- ??? -->
+    </xs:keyref>
+    <!-- ??? -->
+  </xs:element>
+  <xs:complexType name="Graph">
+    <xs:sequence>
+      <xs:element name="nodes" type="this:NodeList" />
+      <xs:element name="vertices" type="this:VertexList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NodeList">
+    <xs:sequence>
+      <xs:element name="node" type="this:Node" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VertexList">
+    <xs:sequence>
+      <xs:element name="vertex" type="this:Vertex" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Node">
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="Vertex">
+    <xs:sequence>
+      <xs:element name="from" type="xs:string" />
+      <xs:element name="to" type="xs:string" />
+      <xs:element name="weight" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
