@@ -3,3 +3,40 @@
 
 7b. Lygina visu zodziu id aibe su visu grido eiluciu indeksu aibe:
     //pzl:word/@id < //pzl:row/@index
+
+//pzl:words/pzl:word[count(//solution/word[@id=??id]/turns/turn)]/@value
+
+//solution/word[not(count(turns/turn) < following-sibling::*)]/@id
+
+count(//solution/word/turns/turn)
+
+id tu zodziu, kurie neturi posukiu:
+    //solution/word[count(turns/turn) = 0]/@id 
+
+
+
+
+//solution/word[not(count(turns/turn) <= following-sibling::*/count(turns/turn)) and not(count(turns/turn) <= preceding-sibling::*/count(turns/turn))]/@id
+
+
+Works (bet ar galima naudot count viduj kelio?):
+//pzl:words/pzl:word[@id = 
+    //solution/word[not(count(turns/turn) < //solution/word/count(turns/turn))]/@id
+]/@value
+
+lol solution:
+//solution/word
+[count(turns/turn) >= count(following-sibling::*[1]/turns/turn)]
+[count(turns/turn) >= count(following-sibling::*[2]/turns/turn)]
+[count(turns/turn) >= count(following-sibling::*[3]/turns/turn)]
+[count(turns/turn) >= count(following-sibling::*[4]/turns/turn)]
+[count(turns/turn) >= count(following-sibling::*[5]/turns/turn)]
+[count(turns/turn) >= count(following-sibling::*[6]/turns/turn)]
+[count(turns/turn) >= count(preceding-sibling::*[1]/turns/turn)]
+[count(turns/turn) >= count(preceding-sibling::*[2]/turns/turn)]
+[count(turns/turn) >= count(preceding-sibling::*[3]/turns/turn)]
+[count(turns/turn) >= count(preceding-sibling::*[4]/turns/turn)]
+[count(turns/turn) >= count(preceding-sibling::*[5]/turns/turn)]
+[count(turns/turn) >= count(preceding-sibling::*[6]/turns/turn)]
+/@id
+

@@ -5,4 +5,4 @@
 6c. Lyginam visu zodziu id aibe su logine reiksme true (paziuri ar yra elementu):
     true() = //pzl:words/pzl:word/@id
 6d. Lyginam visu zodziu id aibe su visu lentos eiluciu id aibe:
-    //pzl:words/pzl:word/@id != //pzl:grid/pzl:row/@index
+    //pzl:words/pzl:word/@id != //pzl:grid/pzl:row
