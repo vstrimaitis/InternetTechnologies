@@ -1,0 +1,6 @@
+1. Visi laukai privalomi
+2. ID - asmens kodas:
+    * 11 skaitmenu
+    * Prasideda 3 arba 4 arba 5 arba 6
+3. Amžius - neneigiamas
+4. Laukų aprašai negali kartotis

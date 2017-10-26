@@ -1,0 +1,18 @@
+{
+    "family": [
+        {
+            "id": "39001011111",
+            "name": "Jonas",
+            "surname": "Jonaitis",
+            "age": 29,
+            "work": "Lietuvos Paštas"
+        },
+        {
+            "id": "30001011111",
+            "name": "Petras",
+            "surname": "Jonaitis",
+            "age": 17,
+            "school": "Žemaitės gimnazija"
+        }
+    ]
+}

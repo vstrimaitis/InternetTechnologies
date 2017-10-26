@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "definitions": {
+        "id": {
+            "type": "string",
+            "pattern": "^[3-6][0-9]{10}$"
+        },
+        "person": {
+            "type": "object",
+            "properties": {
+                "id": {"$ref": "#/definitions/id"},
+                "name": {"type": "string"},
+                "surname": {"type": "string"},
+                "age": {"type": "number", "minimum": 0},
+                "relations": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/relation"}
+                }
+            },
+            "required": [
+                "id", "name", "surname", "age", "relations"
+            ]
+        },
+        "grownup": {
+            "allOf": [
+                {"$ref": "#/definitions/person"},
+                {
+                    "properties": {
+                        "work": {"type": "string"}
+                    },
+                    "required": ["work"]
+                }
+            ]
+        },
+        "child": {
+            "allOf": [
+                {"$ref": "#/definitions/person"},
+                {
+                    "properties": {
+                        "school": {"type": "string"}
+                    },
+                    "required": ["school"]
+                }
+            ]
+        },
+        "relation": {
+            "type": "object",
+            "properties": {
+                "to": {"$ref": "#/definitions/id"},
+                "relation_type": {"enum": ["CHILD", "SPOUSE", "PARENT", "SIBLING"]}
+            },
+            "required": ["to", "relation_type"]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "family": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {"$ref": "#/definitions/grownup"},
+                    {"$ref": "#/definitions/child"}
+                ]
+            }
+        }
+    },
+    "required": ["family"]
+}

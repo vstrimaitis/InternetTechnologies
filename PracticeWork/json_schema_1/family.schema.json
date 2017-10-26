@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "definitions": {
+        "person": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^[3-6][0-9]{10}$"
+                },
+                "name": {"type": "string"},
+                "surname": {"type": "string"},
+                "age": {"type": "number", "minimum": 0}
+            },
+            "required": [
+                "id", "name", "surname", "age"
+            ]
+        },
+        "grownup": {
+            "allOf": [
+                {"$ref": "#/definitions/person"},
+                {
+                    "properties": {
+                        "work": {"type": "string"}
+                    },
+                    "required": ["work"]
+                }
+            ]
+        },
+        "child": {
+            "allOf": [
+                {"$ref": "#/definitions/person"},
+                {
+                    "properties": {
+                        "school": {"type": "string"}
+                    },
+                    "required": ["school"]
+                }
+            ]
+        }
+    },
+
+    "type": "object",
+    "properties": {
+        "family": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {"$ref": "#/definitions/grownup"},
+                    {"$ref": "#/definitions/child"}
+                ]
+            }
+        }
+    },
+    "required": ["family"]
+}
