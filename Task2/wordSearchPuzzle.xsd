@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://vstrimaitis.github.io/puzzle"
+    elementFormDefault="qualified"
+    
+    xmlns:this="http://vstrimaitis.github.io/puzzle"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <!--xmlns="http://vstrimaitis.github.io/puzzle" -->
+
+  <!-- TYPE DECLARATIONS -->
+  <!--1-->
+  <xs:simpleType name="WordType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--2-->
+  <!--The time it took people to finish the puzzle-->
+  <xs:simpleType name="ResultHistoryList">
+    <xs:list itemType="xs:int" />
+  </xs:simpleType>
+  
+  <!--3.2-->
+  <xs:complexType name="HintWordType">
+    <xs:simpleContent>
+      <xs:extension base="this:WordType">
+        <xs:attribute name="id" type="xs:int" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!--3.1-->
+  <!--pzl:col will now have id attribute-->
+  <xs:complexType name="GridColumnType">
+    <xs:simpleContent>
+      <xs:restriction base="this:HintWordType">
+        <xs:maxLength value="1" />
+        <xs:minLength value="1" />
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="GridUnknownColumnType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="?" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="GridRowType">
+    <xs:sequence>
+      <!--7-->
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="col" type="this:GridColumnType" />
+        <xs:element name="colUnknown" type="this:GridUnknownColumnType" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="CoordinateContainer">
+    <xs:sequence>
+      <xs:element name="row" type="this:GridRowType" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="col" type="this:GridColumnType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--4.1-->
+  <xs:complexType name="GridType">
+    <xs:complexContent>
+      <xs:restriction base="this:CoordinateContainer">
+        <xs:sequence>
+          <xs:element name="row" type="this:GridRowType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="TypeWithId">
+    <xs:attribute name="id" type="xs:int" use="required" />
+  </xs:complexType>
+
+  <!--5
+  <xs:complexType name="TypeWithIdAndAlias">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="xs:int" use="required" />
+        <xs:attribute name="alias" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="BadTypeWithId">
+    <xs:simpleContent>
+      <xs:restriction base="this:TypeWithIdAndAlias">
+        <xs:attribute name="id" type="xs:int" use="prohibited" />
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="GoodTypeWithId">
+    <xs:simpleContent>
+      <xs:restriction base="this:TypeWithIdAndAlias">
+        <xs:attribute name="id" type="xs:int" use="required" />
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  -->
+  
+  <xs:complexType name="PointType">
+    <xs:attribute name="row" type="xs:int" />
+    <xs:attribute name="col" type="xs:int" />
+  </xs:complexType>
+
+  <xs:complexType name="TurnsListType">
+    <xs:sequence>
+      <xs:element name="turn" type="this:PointType" maxOccurs="unbounded" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--4.2-->
+  <xs:complexType name="SolutionWordType">
+    <xs:complexContent>
+      <xs:extension base="this:TypeWithId">
+        <xs:sequence>
+          <xs:element name="start" type="this:PointType" />
+          <xs:element name="end" type="this:PointType" />
+          <xs:element name="turns" type="this:TurnsListType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <!--6-->
+  <xs:complexType name="DescriptionType" mixed="true">
+    <xs:sequence>
+      <xs:element name="h" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--7-->
+  
+  
+  <!-- Other -->
+  <xs:complexType name="PuzzleType">
+    <xs:sequence>
+      <xs:element name="description" type="this:DescriptionType" />
+      <xs:element name="resultHistory" type="this:ResultHistoryList" />
+      <xs:element name="words" type="this:HintWordsListType" />
+      <xs:element name="grid" type="this:GridType" />
+      <xs:element name="solution" type="this:SolutionType" />
+    </xs:sequence>
+    <xs:attribute name="width" type="xs:int" />
+    <xs:attribute name="height" type="xs:int" />
+    <xs:attribute name="difficulty" type="xs:decimal" />
+    <xs:attribute name="creationDate" type="xs:date" />
+  </xs:complexType>
+
+  <xs:complexType name="HintWordsListType">
+    <xs:sequence>
+      <xs:element name="word" type="this:HintWordType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SolutionType">
+    <xs:sequence>
+      <xs:element name="word" type="this:SolutionWordType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- XML STRUCTURE DECLARATION -->
+  <xs:element name="puzzle" type="this:PuzzleType">
+    <!--8-->
+    <xs:key name="WordIdKey">
+      <xs:selector xpath="this:words/this:word" />
+      <xs:field xpath="@id" />
+    </xs:key>
+    <xs:keyref name="SolutionWordRef" refer="this:WordIdKey">
+      <xs:selector xpath="this:solution/this:word" />
+      <xs:field xpath="@id" />
+    </xs:keyref>
+  </xs:element>
+  
+</xs:schema>

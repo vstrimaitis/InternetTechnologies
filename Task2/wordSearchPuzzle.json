@@ -1,0 +1,272 @@
+{
+  "width": 6,
+  "height": 6,
+  "difficulty": "Medium",
+  "creationDate": "2017-09-28",
+  "words": [
+    {
+      "id": 0,
+      "value": "JAVASCRIPT"
+    },
+    {
+      "id": 1,
+      "value": "XPATH"
+    },
+    {
+      "id": 2,
+      "value": "JSON"
+    },
+    {
+      "id": 3,
+      "value": "SCHEMA"
+    },
+    {
+      "id": 4,
+      "value": "HTML"
+    },
+    {
+      "id": 5,
+      "value": "CSS"
+    },
+    {
+      "id": 6,
+      "value": "INTERNETAS"
+    },
+    {
+      "id": 7,
+      "value": "WIFI"
+    }
+  ],
+  "grid": [
+    [
+      "?",
+      "R",
+      "I",
+      "T",
+      "N",
+      "T",
+      "A"
+    ],
+    [
+      "A",
+      "C",
+      "P",
+      "C",
+      "I",
+      "M",
+      "E"
+    ],
+    [
+      "V",
+      "S",
+      "L",
+      "S",
+      "E",
+      "R",
+      "N"
+    ],
+    [
+      "A",
+      "Y",
+      "L",
+      "H",
+      "S",
+      "E",
+      "T"
+    ],
+    [
+      "X",
+      "H",
+      "C",
+      "M",
+      "W",
+      "I",
+      "A"
+    ],
+    [
+      "P",
+      "S",
+      "T",
+      "X",
+      "I",
+      "F",
+      "S"
+    ]
+  ],
+  "solution": [
+    {
+      "id": 0,
+      "start": {
+        "row": 0,
+        "col": 0
+      },
+      "end": {
+        "row": 0,
+        "col": 3
+      },
+      "turns": [
+        {
+          "row": 3,
+          "col": 0
+        },
+        {
+          "row": 2,
+          "col": 1
+        },
+        {
+          "row": 0,
+          "col": 1
+        },
+        {
+          "row": 0,
+          "col": 2
+        },
+        {
+          "row": 1,
+          "col": 2
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "start": {
+        "row": 4,
+        "col": 0
+      },
+      "end": {
+        "row": 6,
+        "col": 2
+      },
+      "turns": [
+        {
+          "row": 6,
+          "col": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": {
+        "row": 6,
+        "col": 3
+      },
+      "end": {
+        "row": 6,
+        "col": 6
+      },
+      "turns": []
+    },
+    {
+      "id": 3,
+      "start": {
+        "row": 5,
+        "col": 1
+      },
+      "end": {
+        "row": 0,
+        "col": 6
+      },
+      "turns": []
+    },
+    {
+      "id": 4,
+      "start": {
+        "row": 4,
+        "col": 1
+      },
+      "end": {
+        "row": 3,
+        "col": 2
+      },
+      "turns": [
+        {
+          "row": 5,
+          "col": 2
+        },
+        {
+          "row": 4,
+          "col": 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": {
+        "row": 1,
+        "col": 3
+      },
+      "end": {
+        "row": 3,
+        "col": 4
+      },
+      "turns": [
+        {
+          "row": 2,
+          "col": 3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": {
+        "row": 1,
+        "col": 4
+      },
+      "end": {
+        "row": 5,
+        "col": 6
+      },
+      "turns": [
+        {
+          "row": 0,
+          "col": 4
+        },
+        {
+          "row": 0,
+          "col": 5
+        },
+        {
+          "row": 1,
+          "col": 6
+        },
+        {
+          "row": 2,
+          "col": 5
+        },
+        {
+          "row": 2,
+          "col": 6
+        },
+        {
+          "row": 3,
+          "col": 5
+        },
+        {
+          "row": 3,
+          "col": 6
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": {
+        "row": 4,
+        "col": 4
+      },
+      "end": {
+        "row": 5,
+        "col": 4
+      },
+      "turns": [
+        {
+          "row": 4,
+          "col": 5
+        },
+        {
+          "row": 5,
+          "col": 5
+        }
+      ]
+    }
+  ]
+}
