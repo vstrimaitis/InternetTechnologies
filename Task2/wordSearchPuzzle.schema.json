@@ -104,7 +104,7 @@
     "width": { "$ref": "#/definitions/DimensionType" },
     "height": { "$ref": "#/definitions/DimensionType" },
     "difficulty": { "$ref": "#/definitions/DifficultyType" },
-    "creationDate": { "$red": "#/definitions/DateType" },
+    "creationDate": { "$ref": "#/definitions/DateType" },
     "words": { "$ref": "#/definitions/HintsListType" },
     "grid": { "$ref": "#/definitions/GridType" },
     "solution": { "$ref": "#/definitions/SolutionType" }
