@@ -1,0 +1,1 @@
+Sukurti validu HTML5 dokumenta su ivedimo forma, kurioje prasmingai panaudoti bent 5 skirtingu tipu ivedimo laukai. Pademonstruoti privalomu lauku validacija. Sukurti lentele panaudojant colspan ir rowspan.
