@@ -1,3 +1,4 @@
+/* HEADER */
 header img{
     vertical-align: middle;
 }
@@ -6,12 +7,14 @@ header{
     border-bottom: 1px dashed black;
 }
 header a {
-    font-size: 4em;
+    font-size: 2em;
     text-decoration: none;
     font-style: italic;
     color: black;
     font-weight: bold;
 }
+
+/*NAVIGATION*/
 
 nav > a {
     text-decoration: none;
@@ -25,31 +28,32 @@ nav > a:hover{
     background-color: gray;
 }
 
-#container {
-    overflow:auto;
-    position:relative;
-    border-bottom: 1px dashed black;
-    padding-bottom: 20px;
+/* MAIN CONTAINER */
+
+#container > aside a {
+    display: block;
+    margin: 1px;
 }
 
-#container > section {
-    width: 90%;
-    float: right;
-}
-
-#container > aside {
-    float: left;
-    width: 8%;
-    border-right: 1px dashed black;
-    position: absolute;
-    height: 100%;
-    padding-right: 10px;
-}
+/* FOOTER */
 
 footer {
     text-align: center;
+    color: rgb(2, 107, 49);
 }
 
+footer a {
+    color: inherit;
+}
+
+
+label{
+    color: rgb(2, 107, 49) !important; /*If you want to use green everywhere, put !important*/
+}
+form#gameForm label { /*Set the font for this form to black*/
+    color: black;
+    font-style: italic;
+}
 
 /*LEADERBOARD*/
 
@@ -75,12 +79,13 @@ table#leaderboard td {
 }
 
 table#leaderboard td.dateCell {
-    font-size: 20px;
+    font-size: 12px;
     font-weight: bold;
     width: 0;
 }
 
 /*GAME FORM*/
+
 form#gameForm > label {
     width: 150px;
     display: inline-block;
@@ -99,4 +104,36 @@ option[value="4"] {
 }
 option[value="5"] {
     background-color: rgb(255, 66, 66);
+}
+
+/* VERY RESPONSIVE DESIGN */
+@media screen and (min-width: 1050px){
+    #container {
+        overflow:auto;
+        position:relative;
+        border-bottom: 1px dashed black;
+        padding-bottom: 20px;
+    }
+    
+    #container > section {
+        width: 90%;
+        float: right;
+    }
+    
+    #container > aside {
+        float: left;
+        width: 8%;
+        border-right: 1px dashed black;
+        position: absolute;
+        height: 100%;
+        padding-right: 10px;
+    }
+    header a {
+        font-size: 4em;
+    }
+    table#leaderboard td.dateCell {
+        font-size: 20px;
+        font-weight: bold;
+        width: 0;
+    }
 }
