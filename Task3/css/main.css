@@ -1,0 +1,102 @@
+header img{
+    vertical-align: middle;
+}
+header{
+    text-transform: uppercase;
+    border-bottom: 1px dashed black;
+}
+header a {
+    font-size: 4em;
+    text-decoration: none;
+    font-style: italic;
+    color: black;
+    font-weight: bold;
+}
+
+nav > a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    display: block;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+nav > a:hover{
+    background-color: gray;
+}
+
+#container {
+    overflow:auto;
+    position:relative;
+    border-bottom: 1px dashed black;
+    padding-bottom: 20px;
+}
+
+#container > section {
+    width: 90%;
+    float: right;
+}
+
+#container > aside {
+    float: left;
+    width: 8%;
+    border-right: 1px dashed black;
+    position: absolute;
+    height: 100%;
+    padding-right: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+
+/*LEADERBOARD*/
+
+table#leaderboard {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table#leaderboard td, table#leaderboard th {
+    border: 1px solid lightgray;
+    padding: 8px;
+}
+
+table#leaderboard th {
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+table#leaderboard td {
+    font-size: 17px;
+}
+
+table#leaderboard td.dateCell {
+    font-size: 20px;
+    font-weight: bold;
+    width: 0;
+}
+
+/*GAME FORM*/
+form#gameForm > label {
+    width: 150px;
+    display: inline-block;
+}
+option[value="1"] {
+    background-color: rgb(117, 255, 117);
+}
+option[value="2"] {
+    background-color: rgb(218, 255, 117);
+}
+option[value="3"] {
+    background-color: rgb(252, 255, 82);
+}
+option[value="4"] {
+    background-color: rgb(253, 169, 74);
+}
+option[value="5"] {
+    background-color: rgb(255, 66, 66);
+}

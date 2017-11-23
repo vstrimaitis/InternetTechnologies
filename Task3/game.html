@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Word Search Puzzles - Rules</title>
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="img/logo.jpg" alt="Word Search" /> Word Search Puzzles</a>
+        </header>
+        <div id="container">
+            <section>
+                <article>
+                    <h2>Enter your information to begin the game!</h2>
+                    <form id="gameForm" name="gameStart" action="play.html" method="GET">
+                        <label for="username">Username:</label>
+                            <input type="text" name="username" required> <br/>
+                        <label for="email">Email:</label>
+                            <input type="email" name="email" required> <br/>
+                        <label for="gender">Gender:</label>
+                            <span><input type="radio" name="gender" value="M" id="genderM" checked> <label for="genderM">Male</label></span>
+                            <span><input type="radio" name="gender" value="F" id="genderF"> <label for="genderF">Female</label> <br/></span>
+                        <label for="password">Password:</label>
+                            <input type="password" name="password" required> <br/>
+                        <label for="confirmPassword">Confirm password:</label>
+                            <input type="password" name="confirmPassword" required> <br/>
+                        <label for="dob">Date of birth:</label>
+                            <input type="date" name="dob"> <br/>
+                        <label for="difficulty">Difficulty:</label> 
+                            <select name="difficulty">
+                                <option value="1">Piece of cake</option>
+                                <option value="2">Easy</option>
+                                <option value="3">Medium</option>
+                                <option value="4">Hard</option>
+                                <option value="5">God mode</option>
+                            </select> <br/>
+                        <input type="submit" value="Start!">
+                        <input type="reset" value="Clear">
+                    </form>
+                </article>
+            </section>
+            <aside>
+                <nav>
+                    <a href="rules.html">Rules</a>
+                    <a href="leaderboard.html">Leaderboard</a>
+                    <a href="game.html">Play</a>
+                </nav>
+            </aside>
+        </div>
+        <footer>
+            Vycka ∞™
+        </footer>
+    </body>
+</html>
