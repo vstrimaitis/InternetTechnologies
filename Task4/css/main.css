@@ -1,19 +1,24 @@
 body{
     margin: 0;
-}
-#menu #menuToggleBtn {
-    float: right;
+    max-height: 100vh;
 }
 
-#menu #links {
-    margin-top: 25px;
+#links {
+    text-align: left;
+}
+
+#menuToggleBtn {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 0;
 }
 
 #menu #links a{
     display: block;
     width: 100px;
     background-color: gray;
-    margin-top: 1px;
+    margin-bottom: 1px;
     margin-right: 1px;
     margin-left: 1px;
     color: black;
@@ -23,16 +28,21 @@ body{
     background-color: lightgray;
 }
 #menu {
-    background-color: black;
-    height: 100vh;
-    float: left;
+    vertical-align: top;
+    padding: 0;
+    text-align: right;
+    background-color: rgb(66, 66, 66);
+    height: 97.3vh;
+    display: table-cell;
 }
-section {
-    display: inline-block;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    background-color: gray;
-    padding: 10px;
-    height: 100vh;
+#content {
+    display: table-cell;
+    /*border: 1px solid red;*/
+}
+
+.wrapper {
+    max-height: 100vh;
+    overflow: auto;
+    padding-left: 10px;
+    /* border: 1px solid green; */
 }
