@@ -1,16 +1,40 @@
 var GAME_LIST_URL = "http://api.myjson.com/bins/zctff"
 var SAVE_DATA_URL = "http://api.myjson.com/bins"
 
-Date.isValid = str => {
-	var parts = str.split('-');
-    if(parts.length !== 3) return null;
-    
-    var year = parseInt(parts[0]);
-    var month = parseInt(parts[1])-1;
-    var day = parseInt(parts[2]);
-	
-    var d = new Date(year, month, day);
-    return /^\d+-\d+-\d+$/.test(str) && d.getFullYear() === year && d.getMonth() === month && d.getDate() === day;
+var validator = {
+    isValidDate: str => {
+        var parts = str.split('-');
+        if(parts.length !== 3) return null;
+        
+        var year = parseInt(parts[0]);
+        var month = parseInt(parts[1])-1;
+        var day = parseInt(parts[2]);
+        
+        var d = new Date(year, month, day);
+        return /^\d+-\d+-\d+$/.test(str) && d.getFullYear() === year && d.getMonth() === month && d.getDate() === day;
+    },
+    validateNumberField: f => {
+        if (/\D/g.test(f.value)) {
+            f.value = f.value.replace(/\D/g, '');
+        }
+    },
+    validateText: f => {
+        if(/[^a-zA-Z]+/g.test(f.value)) {
+            f.value = f.value.replace(/[^a-zA-Z]/g, '');
+        }
+    },
+    validateRow: f => {
+        var R = parseInt($("#rowsField").val());
+        var r = parseInt(f.value);
+        var grid = $('#gridArea').html();
+        if(!grid || r < 0 || r >= R) f.value = "";
+    },
+    validateCol: f => {
+        var C = parseInt($("#colsField").val());
+        var c = parseInt(f.value);
+        var grid = $('#gridArea').html();
+        if(!grid || c < 0 || c >= C) f.value = "";
+    }
 }
 
 Array.prototype.flatMap = lambda => { 
@@ -29,16 +53,16 @@ $(document).ready(() => {
 
     $('#dobField').on('keyup blur', e => {
         var str = e.target.value;
-        updateSubmitButton(Date.isValid(str));
+        updateSubmitButton(validator.isValidDate(str));
     });
 
     // Apply event handler for dynamically created elements
     $('body').on('keyup blur', "input.numberField", e => {
-        validateNumberField(e.target);
+        validator.validateNumberField(e.target);
     });
 
     $('#rowsField, #colsField').on('keyup blur', e => {
-        validateNumberField(e.target);
+        validator.validateNumberField(e.target);
         unfreezeCoords();
     });
 
@@ -47,7 +71,7 @@ $(document).ready(() => {
     });
 
     $('#wordCountField').on('keyup blur', e => {
-        validateNumberField(e.target);
+        validator.validateNumberField(e.target);
         unfreezeWordCount();
     });
 
@@ -65,16 +89,16 @@ $(document).ready(() => {
     });
 
     $('body').on('keyup blur', 'input.gridInput, input.wordInput', e => {
-        validateText(e.target);
+        validator.validateText(e.target);
         e.target.value = e.target.value.toUpperCase();
     });
 
     $('body').on('keyup blur', 'input.r', e => {
-        validateRow(e.target);
+        validator.validateRow(e.target);
     })
 
     $('body').on('keyup blur', 'input.c', e => {
-        validateCol(e.target);
+        validator.validateCol(e.target);
     });
     
     $('#createForm').submit(e => {
@@ -314,31 +338,5 @@ $(document).ready(() => {
         } else {
             $('#wordsButton').prop('disabled', true);
         }
-    }
-
-    function validateNumberField(f) {
-        if (/\D/g.test(f.value)) {
-            f.value = f.value.replace(/\D/g, '');
-        }
-    }
-
-    function validateText(f) {
-        if(/[^a-zA-Z]+/g.test(f.value)) {
-            f.value = f.value.replace(/[^a-zA-Z]/g, '');
-        }
-    }
-
-    function validateRow(f) {
-        var R = parseInt($("#rowsField").val());
-        var r = parseInt(f.value);
-        var grid = $('#gridArea').html();
-        if(!grid || r < 0 || r >= R) f.value = "";
-    }
-
-    function validateCol(f) {
-        var C = parseInt($("#colsField").val());
-        var c = parseInt(f.value);
-        var grid = $('#gridArea').html();
-        if(!grid || c < 0 || c >= C) f.value = "";
     }
 });
