@@ -37,6 +37,71 @@ var validator = {
     }
 }
 
+var formHelper = {
+    generateWordsList: cnt => {
+        var table = $('<table></table>');
+        var thead = $('<thead></thead>');
+        var firstRow = $('<tr></tr>');
+        firstRow.append($('<th>Word</th>'));
+        firstRow.append($('<th>Start</th>'));
+        firstRow.append($('<th>End</th>'));
+        table.append(firstRow);
+        for(var i = 0; i < cnt; i++) {
+            var row = $('<tr></tr>');
+            row.append($('<td><input type="text" class="wordInput" placeholder="WORD" required/></td>'));
+            row.append($('<td>(<input type="text" class="numberField startR r" maxlength="2" placeholder="r" required />, <input type="text" class="numberField startC c" maxlength="2" placeholder="c" required />)</td>'));
+            row.append($('<td>(<input type="text" class="numberField endR r" maxlength="2" placeholder="r" required />, <input type="text" class="numberField endC c" maxlength="2" placeholder="c" required />)</td>'));
+            table.append(row);
+        }
+        return table;
+    },
+    generateGrid: (r, c) => {
+        var table = $('<table></table>');
+        var firstRow = $('<tr></tr>');
+        firstRow.append($('<td></td>'));
+        for(var j = 0; j < c; j++) {
+            firstRow.append($('<td>'+j+'</td>'));
+        }
+        table.append(firstRow);
+        for(var i = 0; i < r; i++) {
+            var row = $('<tr></tr>');
+            row.append($('<td>'+ i +'</td>'))
+            for(var j = 0; j < c; j++) {
+                var col = $('<td></td>');
+                col.append(formHelper.createGridInput(i, j));
+                row.append(col);
+            }
+            table.append(row);
+        }
+        return table;
+    },
+    createGridInput: (i, j) => {
+        var input = $('<input type="text" class="gridInput" maxlength="1" name="grid[]" placeholder="A" required></input>');
+        return input;
+    },
+    unfreezeCoords: () => {
+        var r = $("#rowsField").val();
+        var c = $('#colsField').val();
+        if(r && c) {
+            $('#coordsButton').prop('disabled', false);
+        } else {
+            $('#coordsButton').prop('disabled', true);
+        }
+    },
+    unfreezeWordCount: () => {
+        var cnt = $("#wordCountField").val();
+        if(cnt && cnt) {
+            $('#wordsButton').prop('disabled', false);
+        } else {
+            $('#wordsButton').prop('disabled', true);
+        }
+    },
+    updateSubmitButton: isActive => {
+        $('#submitButton').prop('disabled', !isActive);
+    }
+}
+
+// For convenience
 Array.prototype.flatMap = lambda => { 
     return Array.prototype.concat.apply([], this.map(lambda)); 
 };
@@ -53,7 +118,7 @@ $(document).ready(() => {
 
     $('#dobField').on('keyup blur', e => {
         var str = e.target.value;
-        updateSubmitButton(validator.isValidDate(str));
+        formHelper.updateSubmitButton(validator.isValidDate(str));
     });
 
     // Apply event handler for dynamically created elements
@@ -63,28 +128,28 @@ $(document).ready(() => {
 
     $('#rowsField, #colsField').on('keyup blur', e => {
         validator.validateNumberField(e.target);
-        unfreezeCoords();
+        formHelper.unfreezeCoords();
     });
 
     $('input.nonEmpty').on('keyup blur', e => {
-        updateSubmitButton(e.target.value.length > 0);
+        formHelper.updateSubmitButton(e.target.value.length > 0);
     });
 
     $('#wordCountField').on('keyup blur', e => {
         validator.validateNumberField(e.target);
-        unfreezeWordCount();
+        formHelper.unfreezeWordCount();
     });
 
     $("#coordsButton").click(() => {
         var r = parseInt($("#rowsField").val());
         var c = parseInt($('#colsField').val());
-        var grid = generateGrid(r, c);
+        var grid = formHelper.generateGrid(r, c);
         $('#gridArea').html(grid);
     });
 
     $('#wordsButton').click(() => {
         var cnt = parseInt($('#wordCountField').val());
-        var table = generateWordsList(cnt);
+        var table = formHelper.generateWordsList(cnt);
         $('#wordArea').html(table);
     });
 
@@ -271,72 +336,6 @@ $(document).ready(() => {
                 name: data.author.name,
                 favColor: data.author.favColor
             }
-        }
-    }
-
-    function updateSubmitButton(isActive) {
-        $('#submitButton').prop('disabled', !isActive);
-    }
-    function generateWordsList(cnt) {
-        var table = $('<table></table>');
-        var thead = $('<thead></thead>');
-        var firstRow = $('<tr></tr>');
-        firstRow.append($('<th>Word</th>'));
-        firstRow.append($('<th>Start</th>'));
-        firstRow.append($('<th>End</th>'));
-        table.append(firstRow);
-        for(var i = 0; i < cnt; i++) {
-            var row = $('<tr></tr>');
-            row.append($('<td><input type="text" class="wordInput" placeholder="WORD" required/></td>'));
-            row.append($('<td>(<input type="text" class="numberField startR r" maxlength="2" placeholder="r" required />, <input type="text" class="numberField startC c" maxlength="2" placeholder="c" required />)</td>'));
-            row.append($('<td>(<input type="text" class="numberField endR r" maxlength="2" placeholder="r" required />, <input type="text" class="numberField endC c" maxlength="2" placeholder="c" required />)</td>'));
-            table.append(row);
-        }
-        return table;
-    }
-
-    function generateGrid(r, c) {
-        var table = $('<table></table>');
-        var firstRow = $('<tr></tr>');
-        firstRow.append($('<td></td>'));
-        for(var j = 0; j < c; j++) {
-            firstRow.append($('<td>'+j+'</td>'));
-        }
-        table.append(firstRow);
-        for(var i = 0; i < r; i++) {
-            var row = $('<tr></tr>');
-            row.append($('<td>'+ i +'</td>'))
-            for(var j = 0; j < c; j++) {
-                var col = $('<td></td>');
-                col.append(createGridInput(i, j));
-                row.append(col);
-            }
-            table.append(row);
-        }
-        return table;
-    }
-
-    function createGridInput(i, j) {
-        var input = $('<input type="text" class="gridInput" maxlength="1" name="grid[]" placeholder="A" required></input>');
-        return input;
-    }
-    
-    function unfreezeCoords() {
-        var r = $("#rowsField").val();
-        var c = $('#colsField').val();
-        if(r && c) {
-            $('#coordsButton').prop('disabled', false);
-        } else {
-            $('#coordsButton').prop('disabled', true);
-        }
-    }
-
-    function unfreezeWordCount() {
-        var cnt = $("#wordCountField").val();
-        if(cnt && cnt) {
-            $('#wordsButton').prop('disabled', false);
-        } else {
-            $('#wordsButton').prop('disabled', true);
         }
     }
 });
