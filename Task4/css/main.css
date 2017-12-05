@@ -37,7 +37,8 @@ body{
 }
 #content {
     display: table-cell;
-    /*border: 1px solid red;*/
+    width: 100%;
+    /* border: 1px solid red; */
 }
 
 .wrapper {
@@ -48,10 +49,38 @@ body{
 }
 
 form > label {
-    width: 100px;
+    width: 150px;
     display: inline-block;
 }
 
-input.coordField {
+input.numberField {
     width: 30px;
+}
+
+input.gridInput {
+    width: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+table, td {
+    border: 1px solid black;
+}
+table input[type="text"] {
+    border: 0;
+}
+
+#gridArea table td {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+table.gameTable td {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
 }
