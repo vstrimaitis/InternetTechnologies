@@ -143,7 +143,7 @@ $(document).ready(function () {
         var row = $('<tr>');
         var playBtn = $("<button>Play</button>");
         playBtn.click(() => launchGame(data.uri));
-        row.append($('<td>'+data.author.name+'</td>'));
+        row.append($('<td>'+data.author+'</td>'));
         row.append($('<td>'+data.name+'</td>'));
         var playCol = $('<td>');
         playCol.append(playBtn);
