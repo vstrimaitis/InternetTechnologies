@@ -1,7 +1,7 @@
 var GAME_LIST_URL = "http://api.myjson.com/bins/zctff"
 var SAVE_DATA_URL = "http://api.myjson.com/bins"
 
-Date.isValid = function(str) {
+Date.isValid = str => {
 	var parts = str.split('-');
     if(parts.length !== 3) return null;
     
@@ -13,71 +13,71 @@ Date.isValid = function(str) {
     return /^\d+-\d+-\d+$/.test(str) && d.getFullYear() === year && d.getMonth() === month && d.getDate() === day;
 }
 
-Array.prototype.flatMap = function(lambda) { 
+Array.prototype.flatMap = lambda => { 
     return Array.prototype.concat.apply([], this.map(lambda)); 
 };
 
-$(document).ready(function () {
+$(document).ready(() => {
     fillGamesTable();
     
-    $("#menuToggleBtn").click(function () {
+    $("#menuToggleBtn").click(() => {
         $("#menu #links").toggle();
         var elem = $("#menuToggleBtn");
         if(elem.text() == "Hide") elem.text("Show");
         else elem.text("Hide");
     });
 
-    $('#dobField').on('keyup blur', function() {
-        var str = this.value;
+    $('#dobField').on('keyup blur', e => {
+        var str = e.target.value;
         updateSubmitButton(Date.isValid(str));
     });
 
     // Apply event handler for dynamically created elements
-    $('body').on('keyup blur', "input.numberField", function () {
-        validateNumberField(this);
+    $('body').on('keyup blur', "input.numberField", e => {
+        validateNumberField(e.target);
     });
 
-    $('#rowsField, #colsField').on('keyup blur', function() {
-        validateNumberField(this);
+    $('#rowsField, #colsField').on('keyup blur', e => {
+        validateNumberField(e.target);
         unfreezeCoords();
     });
 
-    $('input.nonEmpty').on('keyup blur', function() {
-        updateSubmitButton(this.value.length > 0);
+    $('input.nonEmpty').on('keyup blur', e => {
+        updateSubmitButton(e.target.value.length > 0);
     });
 
-    $('#wordCountField').on('keyup blur', function() {
-        validateNumberField(this);
+    $('#wordCountField').on('keyup blur', e => {
+        validateNumberField(e.target);
         unfreezeWordCount();
     });
 
-    $("#coordsButton").click(function () {
+    $("#coordsButton").click(() => {
         var r = parseInt($("#rowsField").val());
         var c = parseInt($('#colsField').val());
         var grid = generateGrid(r, c);
         $('#gridArea').html(grid);
     });
 
-    $('#wordsButton').click(function() {
+    $('#wordsButton').click(() => {
         var cnt = parseInt($('#wordCountField').val());
         var table = generateWordsList(cnt);
         $('#wordArea').html(table);
     });
 
-    $('body').on('keyup blur', 'input.gridInput, input.wordInput', function() {
-        validateText(this);
-        this.value = this.value.toUpperCase();
+    $('body').on('keyup blur', 'input.gridInput, input.wordInput', e => {
+        validateText(e.target);
+        e.target.value = e.target.value.toUpperCase();
     });
 
-    $('body').on('keyup blur', 'input.r', function() {
-        validateRow(this);
+    $('body').on('keyup blur', 'input.r', e => {
+        validateRow(e.target);
     })
 
-    $('body').on('keyup blur', 'input.c', function() {
-        validateCol(this);
+    $('body').on('keyup blur', 'input.c', e => {
+        validateCol(e.target);
     });
     
-    $('#createForm').submit(function(e) {
+    $('#createForm').submit(e => {
         e.preventDefault();
         var inputs = $('#createForm :input');
         var form = $('#createForm');
