@@ -1,112 +1,20 @@
 var GAME_LIST_URL = "http://api.myjson.com/bins/zctff"
 var SAVE_DATA_URL = "http://api.myjson.com/bins"
 
-var validator = {
-    isValidDate: str => {
-        var parts = str.split('-');
-        if(parts.length !== 3) return null;
-        
-        var year = parseInt(parts[0]);
-        var month = parseInt(parts[1])-1;
-        var day = parseInt(parts[2]);
-        
-        var d = new Date(year, month, day);
-        return /^\d+-\d+-\d+$/.test(str) && d.getFullYear() === year && d.getMonth() === month && d.getDate() === day;
-    },
-    validateNumberField: f => {
-        if (/\D/g.test(f.value)) {
-            f.value = f.value.replace(/\D/g, '');
-        }
-    },
-    validateText: f => {
-        if(/[^a-zA-Z]+/g.test(f.value)) {
-            f.value = f.value.replace(/[^a-zA-Z]/g, '');
-        }
-    },
-    validateRow: f => {
-        var R = parseInt($("#rowsField").val());
-        var r = parseInt(f.value);
-        var grid = $('#gridArea').html();
-        if(!grid || r < 0 || r >= R) f.value = "";
-    },
-    validateCol: f => {
-        var C = parseInt($("#colsField").val());
-        var c = parseInt(f.value);
-        var grid = $('#gridArea').html();
-        if(!grid || c < 0 || c >= C) f.value = "";
-    }
-}
-
-var formHelper = {
-    generateWordsList: cnt => {
-        var table = $('<table></table>');
-        var thead = $('<thead></thead>');
-        var firstRow = $('<tr></tr>');
-        firstRow.append($('<th>Word</th>'));
-        firstRow.append($('<th>Start</th>'));
-        firstRow.append($('<th>End</th>'));
-        table.append(firstRow);
-        for(var i = 0; i < cnt; i++) {
-            var row = $('<tr></tr>');
-            row.append($('<td><input type="text" class="wordInput" placeholder="WORD" required/></td>'));
-            row.append($('<td>(<input type="text" class="numberField startR r" maxlength="2" placeholder="r" required />, <input type="text" class="numberField startC c" maxlength="2" placeholder="c" required />)</td>'));
-            row.append($('<td>(<input type="text" class="numberField endR r" maxlength="2" placeholder="r" required />, <input type="text" class="numberField endC c" maxlength="2" placeholder="c" required />)</td>'));
-            table.append(row);
-        }
-        return table;
-    },
-    generateGrid: (r, c) => {
-        var table = $('<table></table>');
-        var firstRow = $('<tr></tr>');
-        firstRow.append($('<td></td>'));
-        for(var j = 0; j < c; j++) {
-            firstRow.append($('<td>'+j+'</td>'));
-        }
-        table.append(firstRow);
-        for(var i = 0; i < r; i++) {
-            var row = $('<tr></tr>');
-            row.append($('<td>'+ i +'</td>'))
-            for(var j = 0; j < c; j++) {
-                var col = $('<td></td>');
-                col.append(formHelper.createGridInput(i, j));
-                row.append(col);
-            }
-            table.append(row);
-        }
-        return table;
-    },
-    createGridInput: (i, j) => {
-        var input = $('<input type="text" class="gridInput" maxlength="1" name="grid[]" placeholder="A" required></input>');
-        return input;
-    },
-    unfreezeCoords: () => {
-        var r = $("#rowsField").val();
-        var c = $('#colsField').val();
-        if(r && c) {
-            $('#coordsButton').prop('disabled', false);
-        } else {
-            $('#coordsButton').prop('disabled', true);
-        }
-    },
-    unfreezeWordCount: () => {
-        var cnt = $("#wordCountField").val();
-        if(cnt && cnt) {
-            $('#wordsButton').prop('disabled', false);
-        } else {
-            $('#wordsButton').prop('disabled', true);
-        }
-    },
-    updateSubmitButton: isActive => {
-        $('#submitButton').prop('disabled', !isActive);
-    }
-}
-
-// For convenience
-Array.prototype.flatMap = lambda => { 
-    return Array.prototype.concat.apply([], this.map(lambda)); 
-};
-
 $(document).ready(() => {
+    var formHelper = new FormHelper({
+        form: "#createForm",
+        rowsField: "#rowsField",
+        colsField: "#colsField",
+        coordsButton: "#coordsButton",
+        wordCountField: "#wordCountField",
+        submitButton: "#submitButton",
+        gridArea: "#gridArea",
+        wordArea: "#wordArea"
+    });
+
+    var validator = new Validator();
+
     fillGamesTable();
     
     $("#menuToggleBtn").click(() => {
@@ -123,11 +31,11 @@ $(document).ready(() => {
 
     // Apply event handler for dynamically created elements
     $('body').on('keyup blur', "input.numberField", e => {
-        validator.validateNumberField(e.target);
+        e.target.value = validator.validateNumber(e.target.value);
     });
 
     $('#rowsField, #colsField').on('keyup blur', e => {
-        validator.validateNumberField(e.target);
+        e.target.value = validator.validateNumber(e.target.value);
         formHelper.unfreezeCoords();
     });
 
@@ -136,7 +44,7 @@ $(document).ready(() => {
     });
 
     $('#wordCountField').on('keyup blur', e => {
-        validator.validateNumberField(e.target);
+        e.target.value = validator.validateNumber(e.target.value);
         formHelper.unfreezeWordCount();
     });
 
@@ -154,76 +62,32 @@ $(document).ready(() => {
     });
 
     $('body').on('keyup blur', 'input.gridInput, input.wordInput', e => {
-        validator.validateText(e.target);
-        e.target.value = e.target.value.toUpperCase();
+        e.target.value = validator.validateText(e.target.value);
     });
 
     $('body').on('keyup blur', 'input.r', e => {
-        validator.validateRow(e.target);
+        if (formHelper.isGridEmpty()){
+            e.target.value = "";
+            return;
+        }
+        e.target.value = validator.validateRange(
+            parseInt(e.target.value),
+            0, parseInt($('#rowsField').val()));
     })
 
     $('body').on('keyup blur', 'input.c', e => {
-        validator.validateCol(e.target);
+        if (formHelper.isGridEmpty()){
+            e.target.value = "";
+            return;
+        }
+        e.target.value = validator.validateRange(
+            parseInt(e.target.value),
+            0, parseInt($('#colsField').val()));
     });
     
     $('#createForm').submit(e => {
         e.preventDefault();
-        var inputs = $('#createForm :input');
-        var form = $('#createForm');
-        var gameName = form.find('input[name="gameName"]').val();
-        var name = form.find('input[name="name"]').val();
-        var date = form.find('input[name="dob"]').val();
-        var color = form.find('input[name="color"]').val();
-        var r = parseInt(form.find('input[name="rows"]').val());
-        var c = parseInt(form.find('input[name="cols"]').val());
-        var wordCount = parseInt(form.find('input[name="wordCount"]').val());
-        var words = [];
-        var gridRows = $('#gridArea table tr');
-        var grid = gridRows.toArray().slice(1).map(
-                        x => $(x).find("td").toArray().slice(1).map(
-                            y => $(y).find("input").toArray()[0].value
-                        )
-                    );
-        var wordArea = $('#wordArea table tr');
-        var inputWords = wordArea.toArray().slice(1).map(
-            x => $(x).find("td").toArray().flatMap(y => $(y).find("input").toArray())
-        ).map(
-            (x, i) => {return {
-                id: i,
-                word: x[0].value,
-                start: {
-                    row: parseInt(x[1].value),
-                    col: parseInt(x[2].value)
-                },
-                end: {
-                    row: parseInt(x[3].value),
-                    col: parseInt(x[4].value)
-                }
-            }}
-        );
-
-        var words = inputWords.map(x => x.word);
-        var solution = inputWords.map(x => {
-            var clone = Object.assign({}, x);
-            delete clone.word;
-            return clone;
-        });
-        var data = {
-            timestamp: Date.now(),
-            author: {
-                name: name,
-                dob: date,
-                favColor: color,
-            },
-            game: {
-                name: gameName,
-                width: c,
-                height: r,
-                grid: grid,
-                words: words,
-                solution: solution
-            }
-        };
+        var data = formHelper.collectData();
         saveData(data);
     });
     
@@ -253,7 +117,7 @@ $(document).ready(() => {
     }
 
     function launchGame(url) {
-        fetchSingleGame(url)
+        fetchGame(url)
             .then(showGame)
             .catch(err => console.log("ERR", err));
     }
@@ -314,7 +178,7 @@ $(document).ready(() => {
         });
     }
 
-    function fetchSingleGame(url) {
+    function fetchGame(url) {
         return $.ajax({
             url: url,
             type: "GET"
@@ -332,10 +196,7 @@ $(document).ready(() => {
         return {
             uri: uri,
             name: data.game.name,
-            author: {
-                name: data.author.name,
-                favColor: data.author.favColor
-            }
+            author: data.autho.name
         }
     }
 });
