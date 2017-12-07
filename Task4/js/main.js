@@ -1,5 +1,5 @@
-var GAME_LIST_URL = "http://api.myjson.com/bins/zctff"
-var SAVE_DATA_URL = "http://api.myjson.com/bins"
+var GAME_LIST_URL = "http://api.myjson.com/bins/zctff";
+var SAVE_DATA_URL = "http://api.myjson.com/bins";
 
 $(document).ready(() => {
     var formHelper = new FormHelper({
