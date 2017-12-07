@@ -196,7 +196,7 @@ $(document).ready(() => {
         return {
             uri: uri,
             name: data.game.name,
-            author: data.autho.name
+            author: data.author.name
         }
     }
 });
