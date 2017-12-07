@@ -1,3 +1,0 @@
-All games:
-http://api.myjson.com/bins/zctff
-
